@@ -103,7 +103,7 @@ for breakpt = 2:length(y-1)
 end
 endpt=length(y);
 delerr= ((mfwd(endpt).*x(1:endpt)+bfwd(endpt))-y(1:endpt));
-err=sum(abs(delerr));%/length(y));
+err=(sum(abs(delerr))/length(y));
 %find location of the min of the error cu   rve
 [brk_err,loc] = min(error_curve);
 
