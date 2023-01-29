@@ -95,7 +95,7 @@ for breakpt = 2:length(y-1)
     delsbck = (mbck(breakpt).*x(breakpt:end)+bbck(breakpt))-y(breakpt:end);
     %disp([sum(abs(delsfwd))/length(delsfwd), sum(abs(delsbck))/length(delsbck)])
 
-    error_curve(breakpt)= sqrt(sum(abs(delsfwd.^2))/length(delsfwd)) +  sqrt(sum(abs(delsbck.^2))/length(delsbck)); %MAE
+    error_curve(breakpt)= (sum(abs(delsfwd))/length(delsfwd)) +  (sum(abs(delsbck))/length(delsbck)); %MAE
     %error_curve(breakpt) = sqrt(sum(abs(delsfwd.^2))/length(delsfwd)) + sqrt(sum(abs(delsbck.^2))/length(delsbck));
     %error_curve(breakpt) = sum(abs(delsfwd))+ sum(abs(delsbck));
 
@@ -103,7 +103,7 @@ for breakpt = 2:length(y-1)
 end
 endpt=length(y);
 delerr= ((mfwd(endpt).*x(1:endpt)+bfwd(endpt))-y(1:endpt));
-err=sqrt(sum(abs(delerr.^2))/length(y));
+err=(sum(abs(delerr))/length(y));
 %find location of the min of the error cu   rve
 [brk_err,loc] = min(error_curve);
 
