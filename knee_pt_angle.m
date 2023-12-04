@@ -40,8 +40,8 @@ for breakpt = 2:length(y-1)
     error_curve(breakpt) = sum(abs(delsfwd))+ sum(abs(delsbck));
 
     theta=(mfwd(breakpt)-mbck(breakpt))/(1+(mfwd(breakpt)*mbck(breakpt)));
-    angle=atan(theta);
-    angle_threshold(breakpt)= abs(angle) *180/pi;
+    angle=atan(abs(theta));
+    angle_threshold(breakpt)= (angle) *180/pi;
 end
 
 %find location of the min of the error curve
